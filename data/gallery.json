@@ -1,0 +1,383 @@
+{
+  "generated_at": "2026-04-17T11:09:06.038242",
+  "total": 44,
+  "batches": [
+    {
+      "id": "cw-portfolio",
+      "name": "CW Portfolio",
+      "description": "男女2人・明るいオフィス系のインフォグラフィックス（制度解説・お役立ち情報）",
+      "model": "nanobanana_pro (gemini-3-pro-image-preview)",
+      "count": 8,
+      "items": [
+        {
+          "id": "cw-portfolio-01",
+          "slide_name": "01-nisa-list",
+          "image": "images/cw-portfolio/01-nisa-list.png",
+          "title": "新NISAの主な特徴",
+          "aspect_ratio": "16:9",
+          "layout_type": "list",
+          "left_bubble": "新NISAって今までと何が違うんですか?",
+          "right_bubble": "非課税期間が無期限になったのが一番大きいわよ。"
+        },
+        {
+          "id": "cw-portfolio-02",
+          "slide_name": "02-furusato-table",
+          "image": "images/cw-portfolio/02-furusato-table.png",
+          "title": "ふるさと納税の上限目安",
+          "aspect_ratio": "16:9",
+          "layout_type": "table",
+          "left_bubble": "ふるさと納税っていくらまで寄付していいんですか?",
+          "right_bubble": "年収と家族構成で上限が決まるの。早見表で確認してね。"
+        },
+        {
+          "id": "cw-portfolio-03",
+          "slide_name": "03-iryo-contrast",
+          "image": "images/cw-portfolio/03-iryo-contrast.png",
+          "title": "医療費控除 対象/対象外",
+          "aspect_ratio": "16:9",
+          "layout_type": "contrast",
+          "left_bubble": "医療費控除って何でも対象になるんですか?",
+          "right_bubble": "治療目的かどうかで判断するのよ。予防は対象外なの。"
+        },
+        {
+          "id": "cw-portfolio-04",
+          "slide_name": "04-jido-note",
+          "image": "images/cw-portfolio/04-jido-note.png",
+          "title": "児童手当の支給額",
+          "aspect_ratio": "16:9",
+          "layout_type": "note",
+          "left_bubble": "児童手当の制度って変わったって聞いたんですけど?",
+          "right_bubble": "2024年10月から所得制限なし、高校生まで対象になったの。"
+        },
+        {
+          "id": "cw-portfolio-05",
+          "slide_name": "05-taishoku-flow",
+          "image": "images/cw-portfolio/05-taishoku-flow.png",
+          "title": "退職後の健康保険",
+          "aspect_ratio": "16:9",
+          "layout_type": "flow",
+          "left_bubble": "会社辞めたら健康保険ってどうすればいいんですか?",
+          "right_bubble": "3つの選択肢から自分に合うものを14日以内に選んでね。"
+        },
+        {
+          "id": "cw-portfolio-06",
+          "slide_name": "06-kogaku-table",
+          "image": "images/cw-portfolio/06-kogaku-table.png",
+          "title": "高額療養費 自己負担限度額",
+          "aspect_ratio": "16:9",
+          "layout_type": "table",
+          "left_bubble": "入院費が高額になったら全額自己負担なんですか?",
+          "right_bubble": "高額療養費制度で上限額を超えた分は払い戻されるのよ。"
+        },
+        {
+          "id": "cw-portfolio-07",
+          "slide_name": "07-chintai-list",
+          "image": "images/cw-portfolio/07-chintai-list.png",
+          "title": "賃貸契約の初期費用",
+          "aspect_ratio": "16:9",
+          "layout_type": "list",
+          "left_bubble": "引っ越しの初期費用ってどれくらいかかるんですか?",
+          "right_bubble": "家賃の4〜6ヶ月分が目安よ。事前にしっかり準備してね。"
+        },
+        {
+          "id": "cw-portfolio-08",
+          "slide_name": "08-ideco-contrast",
+          "image": "images/cw-portfolio/08-ideco-contrast.png",
+          "title": "iDeCo メリット/注意点",
+          "aspect_ratio": "16:9",
+          "layout_type": "contrast",
+          "left_bubble": "iDeCoって本当にお得なんですか?",
+          "right_bubble": "節税メリットは大きいけど、60歳まで引き出せない点に注意ね。"
+        }
+      ]
+    },
+    {
+      "id": "ria-variations",
+      "name": "Ria Cyber Variations",
+      "description": "リアを使ったダークサイバー系インフォグラフィックス（AI・開発系テーマ）",
+      "model": "nanobanana_pro",
+      "count": 8,
+      "items": [
+        {
+          "id": "ria-variations-01",
+          "slide_name": "01-stats-three-numbers",
+          "image": "images/ria-variations/01-stats-three-numbers.png",
+          "title": "AI統計データ3つの数字",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-02",
+          "slide_name": "02-roadmap-horizontal",
+          "image": "images/ria-variations/02-roadmap-horizontal.png",
+          "title": "AI導入ロードマップ",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-03",
+          "slide_name": "03-timeline-vertical",
+          "image": "images/ria-variations/03-timeline-vertical.png",
+          "title": "AI技術の進化タイムライン",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-04",
+          "slide_name": "04-radial-mindmap",
+          "image": "images/ria-variations/04-radial-mindmap.png",
+          "title": "AI活用マインドマップ",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-05",
+          "slide_name": "05-icon-grid-six",
+          "image": "images/ria-variations/05-icon-grid-six.png",
+          "title": "AI開発ツール6選",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-06",
+          "slide_name": "06-comparison-three-cols",
+          "image": "images/ria-variations/06-comparison-three-cols.png",
+          "title": "AI比較表（3列）",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-07",
+          "slide_name": "07-circle-steps-five",
+          "image": "images/ria-variations/07-circle-steps-five.png",
+          "title": "AI導入5ステップ",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-variations-08",
+          "slide_name": "08-pyramid-hierarchy",
+          "image": "images/ria-variations/08-pyramid-hierarchy.png",
+          "title": "AIスキルピラミッド",
+          "aspect_ratio": "16:9"
+        }
+      ]
+    },
+    {
+      "id": "ria-pastel",
+      "name": "Ria Pastel",
+      "description": "リアを使ったパステルかわいい系インフォグラフィックス（ライフスタイル系テーマ）",
+      "model": "nanobanana_pro",
+      "count": 8,
+      "items": [
+        {
+          "id": "ria-pastel-01",
+          "slide_name": "01-morning-stickers",
+          "image": "images/ria-pastel/01-morning-stickers.png",
+          "title": "朝の5つのいい習慣",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-02",
+          "slide_name": "02-sweets-recipe",
+          "image": "images/ria-pastel/02-sweets-recipe.png",
+          "title": "いちごマフィンの作り方",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-03",
+          "slide_name": "03-plant-calendar",
+          "image": "images/ria-pastel/03-plant-calendar.png",
+          "title": "観葉植物お世話カレンダー",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-04",
+          "slide_name": "04-cafe-flower",
+          "image": "images/ria-pastel/04-cafe-flower.png",
+          "title": "カフェの楽しみ方",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-05",
+          "slide_name": "05-journal-spread",
+          "image": "images/ria-pastel/05-journal-spread.png",
+          "title": "わたしの手帳術",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-06",
+          "slide_name": "06-oshikatsu-hearts",
+          "image": "images/ria-pastel/06-oshikatsu-hearts.png",
+          "title": "推し活6つのアイデア",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-07",
+          "slide_name": "07-sleep-numbers",
+          "image": "images/ria-pastel/07-sleep-numbers.png",
+          "title": "ぐっすり眠るための数字",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-pastel-08",
+          "slide_name": "08-interior-styles",
+          "image": "images/ria-pastel/08-interior-styles.png",
+          "title": "お部屋のテイスト6選",
+          "aspect_ratio": "16:9"
+        }
+      ]
+    },
+    {
+      "id": "ria-column",
+      "name": "Ria Column/TIPS",
+      "description": "",
+      "model": "nanobanana_pro (gemini-3-pro-image-preview)",
+      "count": 12,
+      "items": [
+        {
+          "id": "ria-column-01",
+          "slide_name": "16x9-01-coffee-tips",
+          "image": "images/ria-column/16x9-01-coffee-tips.png",
+          "title": "コーヒーの淹れ方3つのコツ",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-column-02",
+          "slide_name": "16x9-02-reading-habit",
+          "image": "images/ria-column/16x9-02-reading-habit.png",
+          "title": "読書を習慣化する5ステップ",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-column-03",
+          "slide_name": "16x9-03-warm-drinks",
+          "image": "images/ria-column/16x9-03-warm-drinks.png",
+          "title": "冬のあったかドリンク4選",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-column-04",
+          "slide_name": "16x9-04-stretch-neck",
+          "image": "images/ria-column/16x9-04-stretch-neck.png",
+          "title": "肩こり解消ストレッチ",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-column-05",
+          "slide_name": "1x1-01-desk-focus",
+          "image": "images/ria-column/1x1-01-desk-focus.png",
+          "title": "集中力UPのデスク環境",
+          "aspect_ratio": "1:1"
+        },
+        {
+          "id": "ria-column-06",
+          "slide_name": "1x1-02-breakfast-beauty",
+          "image": "images/ria-column/1x1-02-breakfast-beauty.png",
+          "title": "美肌のための朝ごはん",
+          "aspect_ratio": "1:1"
+        },
+        {
+          "id": "ria-column-07",
+          "slide_name": "1x1-03-handwriting-cute",
+          "image": "images/ria-column/1x1-03-handwriting-cute.png",
+          "title": "手書き文字をかわいくするコツ",
+          "aspect_ratio": "1:1"
+        },
+        {
+          "id": "ria-column-08",
+          "slide_name": "1x1-04-oshi-color",
+          "image": "images/ria-column/1x1-04-oshi-color.png",
+          "title": "推しカラーコーデの作り方",
+          "aspect_ratio": "1:1"
+        },
+        {
+          "id": "ria-column-09",
+          "slide_name": "4x3-01-night-routine",
+          "image": "images/ria-column/4x3-01-night-routine.png",
+          "title": "寝る前のリラックスルーティン",
+          "aspect_ratio": "4:3"
+        },
+        {
+          "id": "ria-column-10",
+          "slide_name": "4x3-02-small-room",
+          "image": "images/ria-column/4x3-02-small-room.png",
+          "title": "お部屋を広く見せるコツ",
+          "aspect_ratio": "4:3"
+        },
+        {
+          "id": "ria-column-11",
+          "slide_name": "4x3-03-flowers-care",
+          "image": "images/ria-column/4x3-03-flowers-care.png",
+          "title": "お花を長持ちさせるコツ",
+          "aspect_ratio": "4:3"
+        },
+        {
+          "id": "ria-column-12",
+          "slide_name": "4x3-04-packing-tips",
+          "image": "images/ria-column/4x3-04-packing-tips.png",
+          "title": "旅行前のパッキングTIPS",
+          "aspect_ratio": "4:3"
+        }
+      ]
+    },
+    {
+      "id": "ria-ai-column",
+      "name": "Ria AI Column",
+      "description": "リア x AI話題コラム（パステルかわいい系）8枚バッチ。3:1ワイドバナー含む",
+      "model": "nanobanana_pro (gemini-3-pro-image-preview)",
+      "count": 8,
+      "items": [
+        {
+          "id": "ria-ai-column-01",
+          "slide_name": "3x1-01-ai-tools-banner",
+          "image": "images/ria-ai-column/3x1-01-ai-tools-banner.png",
+          "title": "今話題のAIツール7選（ワイドバナー）",
+          "aspect_ratio": "3:1"
+        },
+        {
+          "id": "ria-ai-column-02",
+          "slide_name": "16x9-02-chatbot-compare",
+          "image": "images/ria-ai-column/16x9-02-chatbot-compare.png",
+          "title": "ChatGPT/Claude/Gemini の使い分け",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-ai-column-03",
+          "slide_name": "16x9-03-ai-video-types",
+          "image": "images/ria-ai-column/16x9-03-ai-video-types.png",
+          "title": "AI動画生成で作れる映像の種類",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-ai-column-04",
+          "slide_name": "16x9-04-ai-work-tools",
+          "image": "images/ria-ai-column/16x9-04-ai-work-tools.png",
+          "title": "AIで仕事が時短になるツール5選",
+          "aspect_ratio": "16:9"
+        },
+        {
+          "id": "ria-ai-column-05",
+          "slide_name": "1x1-05-ai-oshikatsu",
+          "image": "images/ria-ai-column/1x1-05-ai-oshikatsu.png",
+          "title": "AIに頼む推し活アイデア",
+          "aspect_ratio": "1:1"
+        },
+        {
+          "id": "ria-ai-column-06",
+          "slide_name": "1x1-06-prompt-basics",
+          "image": "images/ria-ai-column/1x1-06-prompt-basics.png",
+          "title": "AIプロンプト初心者のコツ",
+          "aspect_ratio": "1:1"
+        },
+        {
+          "id": "ria-ai-column-07",
+          "slide_name": "4x3-07-ai-image-gen",
+          "image": "images/ria-ai-column/4x3-07-ai-image-gen.png",
+          "title": "AI画像生成の進化（Nano Banana系）",
+          "aspect_ratio": "4:3"
+        },
+        {
+          "id": "ria-ai-column-08",
+          "slide_name": "4x3-08-ai-agent-study",
+          "image": "images/ria-ai-column/4x3-08-ai-agent-study.png",
+          "title": "AIエージェント時代の勉強法",
+          "aspect_ratio": "4:3"
+        }
+      ]
+    }
+  ]
+}

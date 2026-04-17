@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infographic Gallery - Automata Room</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #1a1625;
+  --bg-secondary: #2d2640;
+  --bg-card: #352e4a;
+  --bg-card-hover: #3f3758;
+  --accent-primary: #a78bfa;
+  --accent-secondary: #67e8f9;
+  --accent-warm: #fbbf24;
+  --text-primary: #e8e0f0;
+  --text-secondary: #a09bb0;
+  --text-muted: #6b6580;
+  --border-radius: 12px;
+  --card-border: rgba(167, 139, 250, 0.15);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --font-body: 'Noto Sans JP', sans-serif;
+  --font-heading: 'Zen Maru Gothic', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ヘッダー */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26, 22, 37, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 16px 24px;
+}
+
+.header-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.header-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-stats {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
+.header-stats span {
+  color: var(--accent-secondary);
+  font-weight: 700;
+}
+
+/* フィルタータブ */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.filter-btn.active {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  font-weight: 700;
+}
+
+/* アクションバー */
+.action-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.action-btn {
+  padding: 6px 14px;
+  border: 1px solid rgba(103, 232, 249, 0.3);
+  border-radius: 8px;
+  background: rgba(103, 232, 249, 0.08);
+  color: var(--accent-secondary);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: rgba(103, 232, 249, 0.18);
+  border-color: var(--accent-secondary);
+}
+
+/* メインコンテンツ */
+.main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* バッチセクション */
+.batch-section {
+  margin-bottom: 48px;
+}
+
+.batch-header {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.batch-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.batch-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.batch-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 4px;
+}
+
+/* カードグリッド */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* カード */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow);
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.card-img-wrap {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.card-img-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.card-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+/* アスペクト比バッジ */
+.aspect-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--accent-secondary);
+  backdrop-filter: blur(4px);
+}
+
+/* レイアウトバッジ */
+.layout-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(167, 139, 250, 0.8);
+  color: white;
+}
+
+.card-body {
+  padding: 12px;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.card-slide {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+/* 吹き出しテキスト */
+.card-bubbles {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+}
+
+.bubble {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.12);
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.bubble-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+/* コメント */
+.card-comment {
+  width: 100%;
+  min-height: 52px;
+  padding: 8px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+  line-height: 1.4;
+}
+
+.card-comment:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.card-comment::placeholder {
+  color: var(--text-muted);
+}
+
+.comment-indicator {
+  font-size: 0.65rem;
+  color: var(--accent-warm);
+  margin-top: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.comment-indicator.show {
+  opacity: 1;
+}
+
+/* モーダル */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.modal-content img {
+  max-width: 95vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal-info {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.modal-info .modal-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.modal-info .modal-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.modal-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 80px;
+  border: none;
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--accent-primary);
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+  z-index: 1001;
+}
+
+.modal-nav:hover {
+  background: rgba(167, 139, 250, 0.3);
+}
+
+.modal-nav.prev { left: 16px; }
+.modal-nav.next { right: 16px; }
+
+.modal-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1001;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(167, 139, 250, 0.35);
+}
+
+.modal-counter {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  z-index: 1001;
+}
+
+/* 非表示 */
+.hidden { display: none !important; }
+
+/* レスポンシブ */
+@media (max-width: 1199px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 899px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .header { padding: 12px 16px; }
+  .main { padding: 16px; }
+}
+@media (max-width: 559px) {
+  .grid { grid-template-columns: 1fr; }
+  .header-title { font-size: 1.2rem; }
+}
+
+/* インポート用の非表示input */
+#importFile { display: none; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-title">Infographic Gallery</div>
+    <div class="header-stats">
+      <span id="totalCount">0</span> images / <span id="batchCount">0</span> batches
+    </div>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="action-bar">
+      <button class="action-btn" onclick="exportComments()">Export Comments</button>
+      <button class="action-btn" onclick="document.getElementById('importFile').click()">Import Comments</button>
+      <input type="file" id="importFile" accept=".json" onchange="importComments(event)">
+    </div>
+  </div>
+</header>
+
+<main class="main" id="gallery"></main>
+
+<!-- モーダル -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <button class="modal-close" onclick="closeModal()">&times;</button>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#8249;</button>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#8250;</button>
+  <div class="modal-counter" id="modalCounter"></div>
+  <div class="modal-content">
+    <img id="modalImg" src="" alt="">
+    <div class="modal-info">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// === 状態管理 ===
+let galleryData = null;
+let baseComments = {};     // comments.json から読み込んだベースライン
+let localComments = {};    // localStorage のオーバーレイ
+let allItems = [];         // フラット化した全アイテム（モーダルナビ用）
+let filteredItems = [];    // フィルタ後のアイテム
+let currentFilter = 'all';
+let modalIndex = -1;
+
+const LS_KEY = 'infographic-viewer-comments';
+
+// === 初期化 ===
+async function init() {
+  try {
+    const [galleryRes, commentsRes] = await Promise.all([
+      fetch('data/gallery.json'),
+      fetch('comments.json'),
+    ]);
+    galleryData = await galleryRes.json();
+    const commentsData = await commentsRes.json();
+    baseComments = commentsData.comments || {};
+  } catch (e) {
+    console.error('データ読み込みエラー:', e);
+    document.getElementById('gallery').innerHTML =
+      '<p style="padding:40px;text-align:center;color:#ef4444;">データの読み込みに失敗しました。ローカルサーバーから開いてください。</p>';
+    return;
+  }
+
+  // localStorage から復元
+  try {
+    localComments = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+  } catch {
+    localComments = {};
+  }
+
+  // フラット化
+  allItems = [];
+  for (const batch of galleryData.batches) {
+    for (const item of batch.items) {
+      allItems.push({ ...item, batchId: batch.id, batchName: batch.name });
+    }
+  }
+
+  // 統計
+  document.getElementById('totalCount').textContent = galleryData.total;
+  document.getElementById('batchCount').textContent = galleryData.batches.length;
+
+  // フィルターボタン
+  renderFilters();
+
+  // セクション描画
+  renderGallery();
+
+  // キーボードショートカット
+  document.addEventListener('keydown', handleKeydown);
+}
+
+// === フィルター描画 ===
+function renderFilters() {
+  const bar = document.getElementById('filterBar');
+  let html = '<button class="filter-btn active" data-filter="all" onclick="setFilter(\'all\')">全て</button>';
+  for (const batch of galleryData.batches) {
+    html += `<button class="filter-btn" data-filter="${batch.id}" onclick="setFilter('${batch.id}')">${batch.name} (${batch.count})</button>`;
+  }
+  bar.innerHTML = html;
+}
+
+function setFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  document.querySelectorAll('.batch-section').forEach(sec => {
+    if (filter === 'all') {
+      sec.classList.remove('hidden');
+    } else {
+      sec.classList.toggle('hidden', sec.dataset.batch !== filter);
+    }
+  });
+  updateFilteredItems();
+}
+
+function updateFilteredItems() {
+  if (currentFilter === 'all') {
+    filteredItems = [...allItems];
+  } else {
+    filteredItems = allItems.filter(item => item.batchId === currentFilter);
+  }
+}
+
+// === ギャラリー描画 ===
+function renderGallery() {
+  const main = document.getElementById('gallery');
+  let html = '';
+
+  for (const batch of galleryData.batches) {
+    html += `<section class="batch-section" data-batch="${batch.id}">`;
+    html += `<div class="batch-header">`;
+    html += `<div class="batch-name">${batch.name}</div>`;
+    html += `<div class="batch-desc">${batch.description}</div>`;
+    html += `<div class="batch-meta">${batch.model} / ${batch.count}枚</div>`;
+    html += `</div>`;
+    html += `<div class="grid">`;
+
+    for (const item of batch.items) {
+      html += buildCard(batch, item);
+    }
+
+    html += `</div></section>`;
+  }
+
+  main.innerHTML = html;
+  updateFilteredItems();
+}
+
+function buildCard(batch, item) {
+  const comment = getComment(item.id);
+  const hasLocalEdit = localComments[item.id] !== undefined && localComments[item.id] !== (baseComments[item.id] || '');
+
+  let html = `<div class="card" data-id="${item.id}">`;
+
+  // 画像
+  html += `<div class="card-img-wrap" onclick="openModalById('${item.id}')">`;
+  html += `<img src="${item.image}" alt="${item.title}" loading="lazy">`;
+  html += `<div class="aspect-badge">${item.aspect_ratio}</div>`;
+  if (item.layout_type) {
+    html += `<div class="layout-badge">${item.layout_type}</div>`;
+  }
+  html += `</div>`;
+
+  // 本文
+  html += `<div class="card-body">`;
+  html += `<div class="card-title">${item.title}</div>`;
+  html += `<div class="card-slide">${item.slide_name}</div>`;
+
+  // 吹き出し（cw-portfolio用）
+  if (item.left_bubble || item.right_bubble) {
+    html += `<div class="card-bubbles">`;
+    if (item.left_bubble) {
+      html += `<div class="bubble"><div class="bubble-label">Q</div>${item.left_bubble}</div>`;
+    }
+    if (item.right_bubble) {
+      html += `<div class="bubble"><div class="bubble-label">A</div>${item.right_bubble}</div>`;
+    }
+    html += `</div>`;
+  }
+
+  // コメント
+  html += `<textarea class="card-comment" data-id="${item.id}" placeholder="コメントを入力..."
+    oninput="saveComment('${item.id}', this.value)">${escapeHtml(comment)}</textarea>`;
+  html += `<div class="comment-indicator ${hasLocalEdit ? 'show' : ''}" id="ind-${item.id}">未エクスポート</div>`;
+
+  html += `</div></div>`;
+  return html;
+}
+
+// === コメント管理 ===
+function getComment(id) {
+  if (localComments[id] !== undefined) return localComments[id];
+  return baseComments[id] || '';
+}
+
+function saveComment(id, text) {
+  localComments[id] = text;
+  localStorage.setItem(LS_KEY, JSON.stringify(localComments));
+
+  // インジケーター更新
+  const ind = document.getElementById('ind-' + id);
+  if (ind) {
+    const base = baseComments[id] || '';
+    ind.classList.toggle('show', text !== base);
+  }
+}
+
+function exportComments() {
+  // ベース + ローカルをマージ
+  const merged = { ...baseComments };
+  for (const [id, text] of Object.entries(localComments)) {
+    if (text.trim()) {
+      merged[id] = text.trim();
+    } else {
+      delete merged[id];
+    }
+  }
+
+  const data = {
+    version: 1,
+    updated_at: new Date().toISOString(),
+    comments: merged,
+  };
+
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'comments.json';
+  a.click();
+  URL.revokeObjectURL(url);
+
+  // エクスポート後はローカル編集フラグをリセット
+  const commentCount = Object.keys(merged).length;
+  alert(`comments.json をダウンロードしました (${commentCount}件)。\nGitリポジトリにコミットして共有してください。`);
+}
+
+function importComments(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.comments || typeof data.comments !== 'object') {
+        alert('無効なcomments.jsonファイルです。');
+        return;
+      }
+
+      baseComments = data.comments;
+      localComments = {};
+      localStorage.removeItem(LS_KEY);
+
+      // textarea を更新
+      document.querySelectorAll('.card-comment').forEach(textarea => {
+        const id = textarea.dataset.id;
+        textarea.value = baseComments[id] || '';
+      });
+
+      // インジケーター全非表示
+      document.querySelectorAll('.comment-indicator').forEach(ind => {
+        ind.classList.remove('show');
+      });
+
+      alert(`${Object.keys(baseComments).length}件のコメントをインポートしました。`);
+    } catch (err) {
+      alert('JSONの解析に失敗しました: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+// === モーダル ===
+function openModalById(id) {
+  const idx = filteredItems.findIndex(item => item.id === id);
+  if (idx >= 0) openModal(idx);
+}
+
+function openModal(idx) {
+  if (idx < 0 || idx >= filteredItems.length) return;
+  modalIndex = idx;
+  const item = filteredItems[idx];
+
+  document.getElementById('modalImg').src = item.image;
+  document.getElementById('modalTitle').textContent = item.title;
+  document.getElementById('modalMeta').textContent =
+    `${item.batchName} / ${item.slide_name} / ${item.aspect_ratio}`;
+  document.getElementById('modalCounter').textContent =
+    `${idx + 1} / ${filteredItems.length}`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  modalIndex = -1;
+}
+
+function navigateModal(dir) {
+  const newIdx = modalIndex + dir;
+  if (newIdx >= 0 && newIdx < filteredItems.length) {
+    openModal(newIdx);
+  }
+}
+
+// === キーボード ===
+function handleKeydown(e) {
+  if (document.getElementById('modal').classList.contains('open')) {
+    if (e.key === 'Escape') closeModal();
+    else if (e.key === 'ArrowLeft') navigateModal(-1);
+    else if (e.key === 'ArrowRight') navigateModal(1);
+  }
+}
+
+// === ユーティリティ ===
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// === 起動 ===
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
